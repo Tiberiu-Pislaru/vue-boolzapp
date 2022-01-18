@@ -93,16 +93,16 @@ body{
 }
 
 #input-chat{
-    padding: 5px 0;
+    padding: 15px 0;
 }
 
-#input-chat > #input{
-    height:60px;
+#input-chat > #input-block{
+    height:40px;
     display: inline-block;
     width:100%;
 }
 
-#input > input{
+#input-block > input{
     height:100%;
     width:100%;
 }
