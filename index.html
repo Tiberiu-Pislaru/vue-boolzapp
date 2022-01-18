@@ -16,7 +16,7 @@
     <div id="app">
         <main id="container" class='df'>
 
-            <div id="main-left">
+            <div id="main-left" class='color-background-main'>
 
                 <div id="nome-utente" class="df">
                     <div id="img-account" class="circle">
@@ -57,20 +57,78 @@
 
                 </div>
 
-                <div id="chat-box" v-for='contact in contacts'>
-                    <div id="contatto" class='attivo df'>
-                        <div id="img-account" class="circle">
-                            <img :src="contact.avatar" alt="">
-                        </div>
-                        <div id="nome-account">
-                            {{contact.name}}
-                        </div>
-                    </div>  
+                <div id="container-chat">
+                    <div id="chat-box" v-for='(contact, i) in contacts'>
+                        <div id="contatto" class='df' :class='i%2===0? "attivo":""'>
+                            <div id="img-account" class="circle">
+                                <img :src="contact.avatar" alt="">
+                            </div>
+                            <div id="nome-account">
+                                {{contact.name}}
+                            </div>
+                        </div>  
+                    </div>
+
                 </div>
 
             </div>
 
-            <div id="main-right">
+            <div id="main-right" class="color-background-main">
+
+                <div id="nome-utente" class="df">
+                    <div id="img-account" class="circle">
+                        <img src="./img/avatar_1.jpg" alt="">
+                    </div>
+                
+                    <div id="informazioni-chat">
+                        <div id="nome-account" class="nome-utente">
+                            Nome Utente
+                        </div>
+
+                        <div id="access">Ultimo accesso oggi alle</div>
+                        
+                        
+                    </div>
+                
+                    <div id="azioni">
+                        <div id="azione-1">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <div id="azione-2">
+                            <i class="fas fa-paperclip"></i>
+                        </div>
+                        <div id="azione-3">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="area-chat" class="df">
+                    <div class="message my-message" >
+                        ciao
+                    </div>
+                    <div class="message my-message" >
+                        ciao
+                    </div>
+                    <div class="message other-message" >
+                        ciao
+                    </div>
+                </div>
+
+                <div id="input-chat" class="df center">
+
+                    <div id="emoji">
+                        <i class="far fa-grin-tongue-squint"></i>
+                    </div>
+                    <div id="input" >
+                        
+                        <input type="text" placeholder="Scrivi un messaggio">
+                    </div>
+                    <div id="audio">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+
+                </div>
 
             </div>
         </main>
