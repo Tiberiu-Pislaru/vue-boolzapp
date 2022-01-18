@@ -12,7 +12,16 @@
 <body>
     
     <div id="app">
-
+        <div id="chat-box" v-for='contact in contacts'>
+            <div id="contatto">
+                <div id="img-account">
+                    <img src="" alt="">
+                </div>
+                <div id="nome-account">
+                    {{contact.name}}
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="js/script.js"></script>
