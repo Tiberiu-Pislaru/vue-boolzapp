@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
     <link rel="stylesheet" href="css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 
@@ -12,16 +14,67 @@
 <body>
     
     <div id="app">
-        <div id="chat-box" v-for='contact in contacts'>
-            <div id="contatto">
-                <div id="img-account">
-                    <img src="" alt="">
+        <main id="container" class='df'>
+
+            <div id="main-left">
+
+                <div id="nome-utente" class="df">
+                    <div id="img-account" class="circle">
+                        <img src="./img/avatar_io.jpg" alt="">
+                    </div>
+
+                    <div id="nome-account" class="nome-utente">
+                        Nome Utente
+                    </div>
+
+                    <div id="azioni">
+                        <div id="azione-1">
+                            <i class="fas fa-circle-notch"></i>
+                        </div>
+                        <div id="azione-2">
+                            <i class="fas fa-comment-alt"></i>
+                        </div>
+                        <div id="azione-3">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </div>
+                    </div>
                 </div>
-                <div id="nome-account">
-                    {{contact.name}}
+
+                <div id="messaggio-notifiche" class="df">
+
+                    <div id="img-bell" class="df center circle">
+                        <i class="fas fa-bell-slash"></i>
+                    </div>
+                    
+                    <div id="testo-notifiche" class="df">
+                        <div class="main-text">
+                            Ricevi notifiche di nuovi messaggi
+                        </div>
+                        <div class="link">
+                            <a href="#">Attiva notifiche desktop</a>
+                        </div>
+                    </div>
+
                 </div>
+
+                <div id="chat-box" v-for='contact in contacts'>
+                    <div id="contatto" class='attivo df'>
+                        <div id="img-account" class="circle">
+                            <img :src="contact.avatar" alt="">
+                        </div>
+                        <div id="nome-account">
+                            {{contact.name}}
+                        </div>
+                    </div>  
+                </div>
+
             </div>
-        </div>
+
+            <div id="main-right">
+
+            </div>
+        </main>
+        
     </div>
 
     <script src="js/script.js"></script>
