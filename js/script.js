@@ -89,12 +89,18 @@ new Vue({
         ],
         id:0,
         temporaryMessage:'',
+        searchContact:'',
+        timer:null,
     },
     methods:{
+        // prende l'index del contatto e lo assoccia all'ID
         getId:function(index){
             this.id=index;
             console.log(this.contacts[this.id].messages)
         },
+
+        // funzione che mi permette di inserire un oggetto 
+        // nella lista di oggetti messages
         writeMessage:function(){
             const listMessages= this.contacts[this.id].messages;
             const message= {
@@ -105,7 +111,39 @@ new Vue({
 
             listMessages.push(message);
             this.temporaryMessage='';
+        },
+
+        // funzione che dovrebbe fare un cosa simile alla funzione di sopra
+        // ma ogni secondo
+        autoCiao:function(){
+            const lastMessage= this.contacts[this.id].messages[0];
+           
+            this.timer=setInterval(function(){
+                if (lastMessage.status === 'send') {
+                    const message = {
+                        date: '10/01/2020 16:15:22',
+                        text: 'ciao',
+                        status: 'received'
+                    };
+                    
+                    this.contacts[this.id].messages.push(message);
+                    console.log(lastMessage.status);
+                }
+
+            }, 1000);
+
+        },
+        elementiFiltrati:function() {
+            const newListContacts = this.contacts.filter((contact)=>{
+                return contact.name.startsWith(this.searchContact)
+            });
+            console.log(newListContacts)
         }
-    }
+    },
+    mounted: function(){
+        this.autoCiao();
+        this.elementiFiltrati();
+     
+    },
 
 });
