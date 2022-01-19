@@ -91,7 +91,7 @@ new Vue({
         temporaryMessage:'',
         searchContact:'',
         timer:null,
-        newListContacts:this.contacts,
+        // newListContacts: this.contacts,
     },
     methods:{
         // prende l'index del contatto e lo assoccia all'ID
@@ -99,6 +99,16 @@ new Vue({
             this.id=index;
             // console.log(this.contacts[this.id].messages)
         },
+        // isInList:function(item){
+        //     for (let index = 0; index < this.newListContacts.length; index++) {
+        //         if (item === this.newListContacts[index]) {
+        //             return true;
+        //         }
+        //         return false;
+                
+        //     };
+            
+        // },
 
         // funzione che mi permette di inserire un oggetto 
         // nella lista di oggetti messages
@@ -134,18 +144,38 @@ new Vue({
             }, 1000);
 
         },
+
+        // funzione per filtrare i contatti
         elementiFiltrati:function() {
-            this.newListContacts = this.contacts.filter((contact)=>{
+            const newListContacts = this.contacts.filter((contact)=>{
 
                 return contact.name.toUpperCase().startsWith(this.searchContact.toUpperCase()) || this.searchContact ===''
             });
-            console.log(this.newListContacts)
+            // console.log(this.newListContacts)
+            return newListContacts;
+        },
+        getName:function(){
+            const listName=[];
+            let listFiltati=this.elementiFiltrati();
+            for (let index = 0; index < listFiltati.length; index++) {
+                listName.push(listFiltati[index].name)
+                
+            }
+            return listName
+        },
+
+        isIn:function(elem){
+            let listaNomi=this.getName();
+            if (listaNomi.includes(elem.name)) {
+                return true
+            }
+            return false
         }
     },
-    mounted: function(){
-        this.autoCiao();
-        this.elementiFiltrati();
-        this.newListContacts;
-    },
+    // mounted: function(){
+    //     this.autoCiao();
+    //     this.elementiFiltrati();
+    //     this.newListContacts;
+    // },
 
 });
