@@ -128,7 +128,7 @@ new Vue({
                     
                     this.contacts[this.id].messages.push(message);
                     console.log(lastMessage.status);
-                }
+                };
 
             }, 1000);
 
