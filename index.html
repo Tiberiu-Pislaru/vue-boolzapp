@@ -58,6 +58,12 @@
                 </div>
 
                 <div id="container-chat">
+                    <div id="search-contact">
+
+                        <input type="search">
+                        <i class="fas fa-search"></i>
+
+                    </div>
                     <div id="chat-box" v-for='(contact, i) in contacts'>
                         <div id="contatto" class='df' :class='i%2===0? "attivo":""'>
                             <div id="img-account" class="circle">
