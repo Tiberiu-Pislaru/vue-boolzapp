@@ -57,22 +57,28 @@
 
                 </div>
 
+                <div id="search-contact">
+
+                    <input type="search">
+                    <i class="fas fa-search"></i>
+
+                </div>
+
                 <div id="container-chat">
-                    <div id="search-contact">
 
-                        <input type="search">
-                        <i class="fas fa-search"></i>
+                    <div id="container-contacts">
 
-                    </div>
-                    <div id="chat-box" v-for='(contact, i) in contacts'>
-                        <div id="contatto" class='df' :class='i%2===0? "attivo":""'>
-                            <div id="img-account" class="circle">
-                                <img :src="contact.avatar" alt="">
-                            </div>
-                            <div id="nome-account">
-                                {{contact.name}}
-                            </div>
-                        </div>  
+                        <div id="chat-box" v-for='(contact, i) in contacts' @click='getId(i)'>
+                            <div id="contatto" class='df' :class='i%2===0? "attivo":""'>
+                                <div id="img-account" class="circle">
+                                    <img :src="contact.avatar" alt="">
+                                </div>
+                                <div id="nome-account">
+                                    {{contact.name}}
+                                </div>
+                            </div>  
+                        </div>
+
                     </div>
 
                 </div>
@@ -83,12 +89,12 @@
 
                 <div id="nome-utente" class="df">
                     <div id="img-account" class="circle">
-                        <img src="./img/avatar_1.jpg" alt="">
+                        <img :src='contacts[id].avatar' alt="">
                     </div>
                 
                     <div id="informazioni-chat">
                         <div id="nome-account" class="nome-utente">
-                            Nome Utente
+                            {{contacts[id].name}}
                         </div>
 
                         <div id="access">Ultimo accesso oggi alle</div>
@@ -110,15 +116,15 @@
                 </div>
 
                 <div id="area-chat" class="df">
-                    <div class="message my-message" >
-                        ciao
+                    <div v-for='(message,index) in contacts[id].messages' class="message" :class="message.status==='sent'? 'my-message':'other-message'">
+                        {{message.text}}
                     </div>
-                    <div class="message my-message" >
+                    <!-- <div class="message my-message" >
                         ciao
                     </div>
                     <div class="message other-message" >
                         ciao
-                    </div>
+                    </div> -->
                 </div>
 
                 <div id="input-chat" class="df center">
@@ -126,9 +132,9 @@
                     <div id="emoji">
                         <i class="far fa-grin-tongue-squint"></i>
                     </div>
-                    <div id="input-block" >
+                    <div id="input-block"  >
                         
-                        <input type="text" placeholder="Scrivi un messaggio">
+                        <input type="text" v-model='temporaryMessage' placeholder="Scrivi un messaggio" @keyup.enter='writeMessage'>
                     </div>
                     <div id="audio">
                         <i class="fas fa-microphone"></i>

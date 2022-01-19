@@ -5,7 +5,8 @@
 }
 
 body{
-    background-color:gray;
+    background: rgb(2,0,36);
+    background: linear-gradient(180deg, rgba(2,0,36,1) 30%, rgba(0,255,84,1) 100%);
 }
 
 .df{
@@ -83,8 +84,12 @@ body{
 }
 
 #container-chat{
-    height: calc(100vh - (80px + 70px));
+    height: calc(100vh - (80px + 70px + 40px));
     overflow-y: auto;
+}
+
+#container-contacts{
+    padding-right: 10px;
 }
 
 .center{
@@ -107,6 +112,11 @@ body{
     padding: 40px;
     overflow-y: auto;
     flex-direction: column;
+}
+
+#area-chat::-webkit-scrollbar {
+    display: none;
+    position: end;
 }
 
 #input-chat{

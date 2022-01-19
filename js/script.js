@@ -86,7 +86,26 @@ new Vue({
                     }
                 ],
             },
-        ]
+        ],
+        id:0,
+        temporaryMessage:'',
+    },
+    methods:{
+        getId:function(index){
+            this.id=index;
+            console.log(this.contacts[this.id].messages)
+        },
+        writeMessage:function(){
+            const listMessages= this.contacts[this.id].messages;
+            const message= {
+                date: '10/01/2020 16:15:22',
+                text: this.temporaryMessage,
+                status: 'sent'
+            };
+
+            listMessages.push(message);
+            this.temporaryMessage='';
+        }
     }
 
 });
