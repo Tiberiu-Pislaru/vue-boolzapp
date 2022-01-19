@@ -91,12 +91,13 @@ new Vue({
         temporaryMessage:'',
         searchContact:'',
         timer:null,
+        newListContacts:this.contacts,
     },
     methods:{
         // prende l'index del contatto e lo assoccia all'ID
         getId:function(index){
             this.id=index;
-            console.log(this.contacts[this.id].messages)
+            // console.log(this.contacts[this.id].messages)
         },
 
         // funzione che mi permette di inserire un oggetto 
@@ -134,16 +135,17 @@ new Vue({
 
         },
         elementiFiltrati:function() {
-            const newListContacts = this.contacts.filter((contact)=>{
-                return contact.name.startsWith(this.searchContact)
+            this.newListContacts = this.contacts.filter((contact)=>{
+
+                return contact.name.toUpperCase().startsWith(this.searchContact.toUpperCase()) || this.searchContact ===''
             });
-            console.log(newListContacts)
+            console.log(this.newListContacts)
         }
     },
     mounted: function(){
         this.autoCiao();
         this.elementiFiltrati();
-     
+        this.newListContacts;
     },
 
 });

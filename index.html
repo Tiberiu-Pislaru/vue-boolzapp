@@ -68,7 +68,7 @@
 
                     <div id="container-contacts">
 
-                        <div id="chat-box" v-for='(contact, i) in contacts' @click='getId(i)'>
+                        <div id="chat-box" v-for='(contact, i) in newListContacts' @click='getId(i)'>
                             <div id="contatto" class='df' :class='i%2===0? "attivo":""'>
                                 <div id="img-account" class="circle">
                                     <img :src="contact.avatar" alt="">
@@ -89,12 +89,12 @@
 
                 <div id="nome-utente" class="df">
                     <div id="img-account" class="circle">
-                        <img :src='contacts[id].avatar' alt="">
+                        <img :src='newListContacts[id].avatar' alt="">
                     </div>
                 
                     <div id="informazioni-chat">
                         <div id="nome-account" class="nome-utente">
-                            {{contacts[id].name}}
+                            {{newListContacts[id].name}}
                         </div>
 
                         <div id="access">Ultimo accesso oggi alle</div>
@@ -116,7 +116,7 @@
                 </div>
 
                 <div id="area-chat" class="df">
-                    <div v-for='(message,index) in contacts[id].messages' class="message" :class="message.status==='sent'? 'my-message':'other-message'">
+                    <div v-for='(message,index) in newListContacts[id].messages' class="message" :class="message.status==='sent'? 'my-message':'other-message'">
                         {{message.text}}
                     </div>
                     <!-- <div class="message my-message" >
