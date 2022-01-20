@@ -130,33 +130,37 @@ new Vue({
 
         },
 
+        filtered(contact){
+            return contact.name.toUpperCase().includes(this.searchContact.toUpperCase())
+        }
+
 
         // funzione per filtrare i contatti
-        listaElementiFiltrati() {
-            const newListContacts = this.contacts.filter((contact)=>{
+        // listaElementiFiltrati() {
+        //     const newListContacts = this.contacts.filter((contact)=>{
 
-                return contact.name.toUpperCase().startsWith(this.searchContact.toUpperCase()) || this.searchContact ===''
-            });
-            // console.log(newListContacts)
-            return newListContacts;
-        },
-        getName:function(){
-            const listName=[];
-            let listFiltati=this.listaElementiFiltrati();
-            for (let index = 0; index < listFiltati.length; index++) {
-                listName.push(listFiltati[index].name)
+        //         return contact.name.toUpperCase().startsWith(this.searchContact.toUpperCase()) || this.searchContact ===''
+        //     });
+        //     // console.log(newListContacts)
+        //     return newListContacts;
+        // },
+        // getName:function(){
+        //     const listName=[];
+        //     let listFiltati=this.listaElementiFiltrati();
+        //     for (let index = 0; index < listFiltati.length; index++) {
+        //         listName.push(listFiltati[index].name)
                 
-            }
-            return listName
-        },
+        //     }
+        //     return listName
+        // },
 
-        isNameIn:function(elem){
-            let listaNomi=this.getName();
-            if (listaNomi.includes(elem.name)) {
-                return true
-            }
-            return false
-        }
+        // isNameIn:function(elem){
+        //     let listaNomi=this.getName();
+        //     if (listaNomi.includes(elem.name)) {
+        //         return true
+        //     }
+        //     return false
+        // }
     },
     // mounted: function(){
     //     this.autoCiao();
