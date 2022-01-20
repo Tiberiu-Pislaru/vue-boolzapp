@@ -116,7 +116,12 @@ body{
 
 #area-chat::-webkit-scrollbar {
     display: none;
-    position: end;
+    /* position: end; */
+}
+
+#area-chat .message > #date{
+    font-size: 10px;
+    margin-top: 10px;
 }
 
 #input-chat{

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 
 </head>
@@ -99,7 +100,7 @@
                             {{contacts[id].name}}
                         </div>
 
-                        <div id="access">Ultimo accesso oggi alle</div>
+                        <div id="access">Ultimo accesso oggi alle {{lastAccess()}}</div>
                         
                         
                     </div>
@@ -118,8 +119,15 @@
                 </div>
 
                 <div id="area-chat" class="df">
-                    <div v-for='(message,index) in contacts[id].messages' class="message" :class="message.status==='sent'? 'my-message':'other-message'">
-                        {{message.text}}
+                    <div v-for='(message,index) in contacts[id].messages' class="message" :class="checkStatus(message)">
+                        <div id="testo">
+                            
+                            {{message.text}}
+
+                        </div>
+                        <div id="date" >
+                            {{message.date}}
+                        </div>
                     </div>
                     <!-- <div class="message my-message" >
                         ciao
