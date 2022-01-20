@@ -6,7 +6,7 @@
 
 body{
     background: rgb(2,0,36);
-    background: linear-gradient(180deg, rgba(2,0,36,1) 30%, rgba(0,255,84,1) 100%);
+    background: linear-gradient(180deg, rgba(2,0,36,1) 25%, rgba(0,255,84,1) 25%);
 }
 
 .df{
@@ -15,9 +15,9 @@ body{
 
 #container{
     max-width: 900px;
-    height: 100vh;
+    height: calc(100vh - 20px);
     /* background-color: #555; */
-    margin: 0 auto;
+    margin: 10px auto;
 }
 
 .color-background-main{
@@ -120,8 +120,9 @@ body{
     height: 30px;
 }
 
+/* i 20 px riguardano i pixel del margine (top-10 e bottom-10 insime) */
 #container-chat{
-    height: calc(100vh - (80px + 70px + 40px));
+    height: calc(100vh - (80px + 70px + 40px + 20px));
     overflow-y: auto;
 }
 
@@ -150,8 +151,9 @@ body{
     flex-grow: 3;
 }
 
+/* i 20 px riguardano i pixel del margine (top-10 e bottom-10 insime) */
 #area-chat{
-    height: calc(100vh - (70px + 70px));
+    height: calc(100vh - (70px + 70px + 20px));
     background: url(../img/mine.jpg) no-repeat ;
     background-size: cover;
     padding: 40px;
