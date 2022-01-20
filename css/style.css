@@ -25,6 +25,48 @@ body{
 
 }
 
+.circle{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+#img-account{
+    margin: 0 15px;
+    overflow-y: hidden;
+}
+
+#img-account img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#nome-account{
+    flex-grow: 2;
+}
+
+#nome-account,
+.main-text{
+    font-weight:bold;
+}
+
+#azioni{
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-around;
+}
+
+.center{
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* ------------------------------------------------------ */
+
+
+/* codice per la parte di sinistra del template*/
 #main-left{
     width: 300px;
     border-right: 1px solid blanchedalmond;
@@ -36,11 +78,6 @@ body{
     padding: 10px 0;
 }
 
-#azioni{
-    display: flex;
-    flex-grow: 1;
-    justify-content: space-around;
-}
 
 #messaggio-notifiche{
     background-color: #8edafd;
@@ -92,10 +129,18 @@ body{
     padding-right: 10px;
 }
 
-.center{
-    justify-content: center;
-    align-items: center;
+
+#contatto{
+    padding: 10px 0;
 }
+
+#contatto.attivo{
+    background-color: #c6c6c6;
+}
+
+/* ------------------------------------------------- */
+
+/* parte di destra del template */
 
 #main-right{
     width: calc(100% - 300px);
@@ -114,6 +159,8 @@ body{
     flex-direction: column;
 }
 
+/* questa linee do codice serve per nascondere elemento della scroll-bar
+   che si trova dentro il div dove vengono visualizzati i messaggi */
 #area-chat::-webkit-scrollbar {
     display: none;
     /* position: end; */
@@ -132,11 +179,15 @@ body{
     height:40px;
     display: inline-block;
     width:100%;
+    
 }
 
 #input-block > input{
     height:100%;
     width:100%;
+    border: none;
+    border-radius: 5px;
+    padding-left: 5px;
 }
 
 #input-chat i{
@@ -146,40 +197,6 @@ body{
 #input-chat > #emoji,
 #input-chat > #audio{   
     padding: 0 30px;
-}
-
-#contatto{
-    padding: 10px 0;
-}
-
-#contatto.attivo{
-    background-color: #c6c6c6;
-}
-
-.circle{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-}
-
-#img-account{
-    margin: 0 15px;
-    overflow-y: hidden;
-}
-
-#img-account img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-#nome-account{
-    flex-grow: 2;
-}
-
-#nome-account,
-.main-text{
-    font-weight:bold;
 }
 
 .message{
