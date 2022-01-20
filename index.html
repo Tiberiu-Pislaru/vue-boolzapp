@@ -68,15 +68,17 @@
 
                     <div id="container-contacts">
 
-                        <div id="chat-box" v-for='(contact, i) in contacts' @click='getId(i)' v-if='isIn(contact)'>
-                            <div id="contatto" class='df' :class='i%2===0? "attivo":""'>
-                                <div id="img-account" class="circle">
-                                    <img :src="contact.avatar" alt="">
-                                </div>
-                                <div id="nome-account">
-                                    {{contact.name}}
-                                </div>
-                            </div>  
+                        <div id="chat-box" v-for='(contact, i) in contacts' @click='getId(i)' >
+                            <div v-if='contact.name.toUpperCase().includes(searchContact.toUpperCase())'>
+                                <div id="contatto" class='df' :class='i%2===0? "attivo":""' >
+                                    <div id="img-account" class="circle">
+                                        <img :src="contact.avatar" alt="">
+                                    </div>
+                                    <div id="nome-account">
+                                        {{contact.name}}
+                                    </div>
+                                </div>  
+                            </div>
                         </div>
 
                     </div>
@@ -134,7 +136,7 @@
                     </div>
                     <div id="input-block"  >
                         
-                        <input type="text" v-model='temporaryMessage' placeholder="Scrivi un messaggio" @keyup.enter='writeMessage'>
+                        <input type="text" v-model='temporaryMessage' placeholder="Scrivi un messaggio" @keyup.enter='sentMessageTo(contacts[id])'>
                     </div>
                     <div id="audio">
                         <i class="fas fa-microphone"></i>

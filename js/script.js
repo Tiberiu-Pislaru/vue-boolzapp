@@ -112,14 +112,12 @@ new Vue({
 
         // funzione che mi permette di inserire un oggetto 
         // nella lista di oggetti messages
-        writeMessage:function(){
-            const listMessages= this.contacts[this.id].messages;
-            const message= {
+        sentMessageTo(contact){
+            contact.messages.push({
                 date: '10/01/2020 16:15:22',
                 text: this.temporaryMessage,
                 status: 'sent'
-            };
-            listMessages.push(message);
+            });
             this.temporaryMessage='';
 
             setTimeout(() => {
@@ -132,39 +130,19 @@ new Vue({
 
         },
 
-        // funzione che dovrebbe fare un cosa simile alla funzione di sopra
-        // ma ogni secondo
-        autoCiao:function(){
-            const lastMessage= this.contacts[this.id].messages[0];
-           
-            this.timer=setInterval(function(){
-                if (lastMessage.status === 'send') {
-                    const message = {
-                        date: '10/01/2020 16:15:22',
-                        text: 'ciao',
-                        status: 'received'
-                    };
-                    
-                    this.contacts[this.id].messages.push(message);
-                    console.log(lastMessage.status);
-                };
-
-            }, 1000);
-
-        },
 
         // funzione per filtrare i contatti
-        elementiFiltrati:function() {
+        listaElementiFiltrati() {
             const newListContacts = this.contacts.filter((contact)=>{
 
                 return contact.name.toUpperCase().startsWith(this.searchContact.toUpperCase()) || this.searchContact ===''
             });
-            console.log(newListContacts)
+            // console.log(newListContacts)
             return newListContacts;
         },
         getName:function(){
             const listName=[];
-            let listFiltati=this.elementiFiltrati();
+            let listFiltati=this.listaElementiFiltrati();
             for (let index = 0; index < listFiltati.length; index++) {
                 listName.push(listFiltati[index].name)
                 
@@ -172,7 +150,7 @@ new Vue({
             return listName
         },
 
-        isIn:function(elem){
+        isNameIn:function(elem){
             let listaNomi=this.getName();
             if (listaNomi.includes(elem.name)) {
                 return true
