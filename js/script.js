@@ -119,9 +119,17 @@ new Vue({
                 text: this.temporaryMessage,
                 status: 'sent'
             };
-
             listMessages.push(message);
             this.temporaryMessage='';
+
+            setTimeout(() => {
+                this.contacts[this.id].messages.push({
+                    date: '10/01/2020 16:15:23',
+                    text: "ok",
+                    status: "received",
+                });
+            }, 3000);
+
         },
 
         // funzione che dovrebbe fare un cosa simile alla funzione di sopra
@@ -151,7 +159,7 @@ new Vue({
 
                 return contact.name.toUpperCase().startsWith(this.searchContact.toUpperCase()) || this.searchContact ===''
             });
-            // console.log(this.newListContacts)
+            console.log(newListContacts)
             return newListContacts;
         },
         getName:function(){
