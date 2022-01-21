@@ -71,7 +71,7 @@
 
                         <div id="chat-box" v-for='(contact, i) in contacts' @click='getId(i)' >
                             <div v-if='filtered(contact)'>
-                                <div id="contatto" class='df' :class='i%2===0? "attivo":""' >
+                                <div id="contatto" class='df' :class='addClass(i)' >
                                     <div id="img-account" class="circle">
                                         <img :src="contact.avatar" alt="">
                                     </div>

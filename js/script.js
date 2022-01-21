@@ -92,10 +92,11 @@ new Vue({
         searchContact:'',
     },
     methods:{
+
         // prende l'index del contatto e lo assoccia all'ID
         getId:function(index){
             this.id=index;
-            // console.log(this.contacts[this.id].messages)
+            
         },
 
         // funzione che mi permette di sapere
@@ -145,8 +146,13 @@ new Vue({
             const lunghezzaArray = this.contacts[this.id].messages
             console.log(lunghezzaArray.length-1)
             return this.contacts[this.id].messages[lunghezzaArray.length-1].date
-        }
+        },
 
+        addClass(index){
+            if (index % 2===0){
+                return 'attivo'
+            }
+        }
         
     },
     
