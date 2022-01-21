@@ -90,8 +90,6 @@ new Vue({
         id:0,
         temporaryMessage:'',
         searchContact:'',
-        timer:null,
-        // newListContacts: this.contacts,
     },
     methods:{
         // prende l'index del contatto e lo assoccia all'ID
@@ -105,18 +103,7 @@ new Vue({
         dateNow() {
             return dayjs().format('DD/MM/YYYY H:m:s')
         },
-        /*
-        isInList:function(item){
-            for (let index = 0; index < this.newListContacts.length; index++) {
-                if (item === this.newListContacts[index]) {
-                    return true;
-                }
-                return false;
-                
-            };
-            
-        },
-        */
+        
 
         // funzione che mi permette di inserire un oggetto 
         // nella lista di oggetti messages
@@ -160,38 +147,8 @@ new Vue({
             return this.contacts[this.id].messages[lunghezzaArray.length-1].date
         }
 
-        /*
-        funzione per filtrare i contatti
-        listaElementiFiltrati() {
-            const newListContacts = this.contacts.filter((contact)=>{
-
-                return contact.name.toUpperCase().startsWith(this.searchContact.toUpperCase()) || this.searchContact ===''
-            });
-            // console.log(newListContacts)
-            return newListContacts;
-        },
-        getName:function(){
-            const listName=[];
-            let listFiltati=this.listaElementiFiltrati();
-            for (let index = 0; index < listFiltati.length; index++) {
-                listName.push(listFiltati[index].name)
-                
-            }
-            return listName
-        },
-
-        isNameIn:function(elem){
-            let listaNomi=this.getName();
-            if (listaNomi.includes(elem.name)) {
-                return true
-            }
-            return false
-        }
-        */
+        
     },
-    // mounted: function(){
-    //     this.lastAccess()
-    // },
     
 
 });
