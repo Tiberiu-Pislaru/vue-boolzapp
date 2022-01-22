@@ -152,9 +152,15 @@ new Vue({
             if (index % 2===0){
                 return 'attivo'
             }
-        }
+        },
+
+        // funzione di prova per cancellare un messaggio
+        printso(i){
+            // console.log('Messaggio numero',i)
+            this.contacts[this.id].messages.splice(i,1);
+            console.log(this.contacts[this.id].messages)
+        }  
         
     },
-    
 
 });

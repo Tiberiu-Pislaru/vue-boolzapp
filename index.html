@@ -121,7 +121,7 @@
                 </div>
 
                 <div id="area-chat" class="df">
-                    <div v-for='(message,index) in contacts[id].messages' class="message" :class="checkStatus(message)">
+                    <div v-for='(message,index) in contacts[id].messages' class="message" :class="checkStatus(message)" @click='printso(index)'>
                         <div id="testo">
                             
                             {{message.text}}
